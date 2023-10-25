@@ -6,15 +6,12 @@ jobs:
   release:
     name: Perform release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - run: |
-          git config user.name 'Cog Bot'
-          git config user.email mycoolproject@org.org
-          git config --global user.email mycoolproject@org.org
-          git config --global user.name 'Cog Bot'
 
       - name: Cocogitto release
         id: release
@@ -33,3 +30,4 @@ jobs:
           body_path: GITHUB_CHANGELOG.md
           tag_name: ${{ steps.release.outputs.version }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
