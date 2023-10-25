@@ -1,3 +1,3 @@
 # cog-ci-test
 
-update
+Test Cocogitto release using oknozor/cocogitto-action@v3 
